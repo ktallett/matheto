@@ -24,28 +24,36 @@ Calculator::~Calculator() = default;
 
 void Calculator::setupUI() {
     setWindowTitle("Matheto");
-    setMinimumSize(400, 600);
+    setMinimumSize(420, 650);
 
     mainLayout = new QVBoxLayout(this);
-    mainLayout->setSpacing(10);
-    mainLayout->setContentsMargins(10, 10, 10, 10);
+    mainLayout->setSpacing(12);
+    mainLayout->setContentsMargins(15, 15, 15, 15);
 
     // Input display
     QLabel *inputLabel = new QLabel("Input:", this);
-    inputLabel->setStyleSheet("font-weight: bold; font-size: 14px;");
+    inputLabel->setStyleSheet(
+        "font-weight: 600; "
+        "font-size: 13px; "
+        "color: #505050; "
+        "font-family: 'SF Pro Text', 'Segoe UI', sans-serif;"
+    );
     mainLayout->addWidget(inputLabel);
 
     inputDisplay = new QLineEdit(this);
     inputDisplay->setReadOnly(true);
     inputDisplay->setAlignment(Qt::AlignRight);
-    inputDisplay->setMinimumHeight(50);
+    inputDisplay->setMinimumHeight(60);
     inputDisplay->setStyleSheet(
         "QLineEdit {"
-        "    font-size: 20px;"
-        "    padding: 10px;"
-        "    border: 2px solid #ccc;"
-        "    border-radius: 5px;"
-        "    background-color: white;"
+        "    font-size: 28px;"
+        "    font-family: 'SF Pro Display', 'Segoe UI', sans-serif;"
+        "    font-weight: 400;"
+        "    padding: 12px;"
+        "    border: none;"
+        "    border-radius: 8px;"
+        "    background-color: #FFFFFF;"
+        "    color: #333333;"
         "}"
     );
     mainLayout->addWidget(inputDisplay);
@@ -54,11 +62,33 @@ void Calculator::setupUI() {
     QHBoxLayout *formatLayout = new QHBoxLayout();
     QLabel *latexLabel = new QLabel("LaTeX Preview:", this);
     latexLabel->setObjectName("formatLabel");
-    latexLabel->setStyleSheet("font-weight: bold; font-size: 14px;");
+    latexLabel->setStyleSheet(
+        "font-weight: 600; "
+        "font-size: 13px; "
+        "color: #505050; "
+        "font-family: 'SF Pro Text', 'Segoe UI', sans-serif;"
+    );
     formatLayout->addWidget(latexLabel);
 
     formatToggle = new QPushButton("Switch to Typst", this);
     formatToggle->setMaximumWidth(150);
+    formatToggle->setStyleSheet(
+        "QPushButton {"
+        "    background-color: #A5A5A5;"
+        "    color: white;"
+        "    border: none;"
+        "    border-radius: 6px;"
+        "    padding: 6px 12px;"
+        "    font-size: 12px;"
+        "    font-family: 'SF Pro Text', 'Segoe UI', sans-serif;"
+        "}"
+        "QPushButton:hover {"
+        "    background-color: #8C8C8C;"
+        "}"
+        "QPushButton:pressed {"
+        "    background-color: #707070;"
+        "}"
+    );
     connect(formatToggle, &QPushButton::clicked, this, &Calculator::toggleFormat);
     formatLayout->addWidget(formatToggle);
     formatLayout->addStretch();
@@ -72,11 +102,12 @@ void Calculator::setupUI() {
     latexDisplay->setStyleSheet(
         "QTextEdit {"
         "    font-size: 16px;"
-        "    font-family: 'Courier New', monospace;"
-        "    padding: 10px;"
-        "    border: 2px solid #ccc;"
-        "    border-radius: 5px;"
-        "    background-color: #f9f9f9;"
+        "    font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;"
+        "    padding: 12px;"
+        "    border: none;"
+        "    border-radius: 8px;"
+        "    background-color: #F5F5F5;"
+        "    color: #333333;"
         "}"
     );
     mainLayout->addWidget(latexDisplay);
@@ -139,8 +170,8 @@ void Calculator::setupConnections() {
 
 void Calculator::styleWidget() {
     setStyleSheet(
-        "QWidget {"
-        "    background-color: #f0f0f0;"
+        "Calculator {"
+        "    background-color: #E8E8E8;"
         "}"
     );
 }

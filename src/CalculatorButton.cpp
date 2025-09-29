@@ -15,31 +15,36 @@ void CalculatorButton::setButtonType(ButtonType type) {
 void CalculatorButton::applyStyle() {
     QString baseStyle =
         "QPushButton {"
-        "    border: 1px solid #ccc;"
-        "    border-radius: 4px;"
-        "    font-size: 16px;"
-        "    font-weight: bold;"
+        "    border: none;"
+        "    border-radius: 8px;"
+        "    font-size: 18px;"
+        "    font-weight: 500;"
+        "    font-family: 'SF Pro Text', 'Segoe UI', sans-serif;"
         "}"
         "QPushButton:hover {"
-        "    border: 2px solid #999;"
+        "    opacity: 0.9;"
         "}"
         "QPushButton:pressed {"
-        "    background-color: #ddd;"
+        "    opacity: 0.7;"
         "}";
 
     QString colorStyle;
     switch (m_type) {
     case Number:
-        colorStyle = "background-color: #f5f5f5; color: #333;";
+        // White/light grey for numbers
+        colorStyle = "background-color: #FFFFFF; color: #333333;";
         break;
     case Operator:
-        colorStyle = "background-color: #ff9500; color: white;";
+        // Orange for operators (NumWorks style)
+        colorStyle = "background-color: #FF9500; color: #FFFFFF;";
         break;
     case Function:
-        colorStyle = "background-color: #4a90e2; color: white;";
+        // Medium grey for functions
+        colorStyle = "background-color: #A5A5A5; color: #FFFFFF;";
         break;
     case Special:
-        colorStyle = "background-color: #e74c3c; color: white;";
+        // Dark grey for special buttons
+        colorStyle = "background-color: #505050; color: #FFFFFF;";
         break;
     }
 
