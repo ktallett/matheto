@@ -1,4 +1,4 @@
-# Matheto
+# matheto
 
 A lightweight, modular calculator for Linux with dual mathematical notation support (LaTeX and Typst) currently still being developed.
 
@@ -54,3 +54,4 @@ matheto
 
 GPL-3.0
 
+---
