@@ -1,0 +1,9 @@
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/matheto.dir
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/edit_cache.dir
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/rebuild_cache.dir
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/list_install_components.dir
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/install.dir
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/install/local.dir
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/install/strip.dir
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/matheto_autogen_timestamp_deps.dir
+/home/kerntallett/Dropbox/mnt_reform/projects/matheto/build/CMakeFiles/matheto_autogen.dir
