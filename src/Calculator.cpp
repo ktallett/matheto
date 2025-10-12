@@ -24,36 +24,42 @@ Calculator::~Calculator() = default;
 
 void Calculator::setupUI() {
     setWindowTitle("Matheto");
-    setMinimumSize(420, 650);
+    // Responsive minimum size - works on MNT Pocket Reform (1920x1200)
+    // and smaller devices in split-screen mode (960px width)
+    setMinimumSize(320, 480);
+    resize(420, 650);  // Default size, but can shrink
 
     mainLayout = new QVBoxLayout(this);
-    mainLayout->setSpacing(12);
-    mainLayout->setContentsMargins(15, 15, 15, 15);
+    mainLayout->setSpacing(12);  // Reduced spacing for compact screens
+    mainLayout->setContentsMargins(12, 12, 12, 12);  // --spacing-2: 12px
 
     // Input display
     QLabel *inputLabel = new QLabel("Input:", this);
     inputLabel->setStyleSheet(
         "font-weight: 600; "
         "font-size: 13px; "
-        "color: #505050; "
-        "font-family: 'SF Pro Text', 'Segoe UI', sans-serif;"
+        "color: #696D79; "  // --color-fg-secondary
+        "font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;"
     );
     mainLayout->addWidget(inputLabel);
 
+    // LCD Display styling - responsive font size
     inputDisplay = new QLineEdit(this);
     inputDisplay->setReadOnly(true);
     inputDisplay->setAlignment(Qt::AlignRight);
-    inputDisplay->setMinimumHeight(60);
+    inputDisplay->setMinimumHeight(60);  // Smaller min-height for compact screens
+    inputDisplay->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     inputDisplay->setStyleSheet(
         "QLineEdit {"
-        "    font-size: 28px;"
-        "    font-family: 'SF Pro Display', 'Segoe UI', sans-serif;"
-        "    font-weight: 400;"
-        "    padding: 12px;"
-        "    border: none;"
-        "    border-radius: 8px;"
-        "    background-color: #FFFFFF;"
-        "    color: #333333;"
+        "    font-size: 36px;"  // Responsive font size (reduced from 56px)
+        "    font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;"
+        "    font-weight: 300;"  // --font-weight-light
+        "    padding: 12px;"  // --spacing-2 (reduced from 18px)
+        "    border: 2px solid #E8E8E8;"  // --color-border-light
+        "    border-radius: 8px;"  // --radius-md
+        "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #FAFAFA, stop:1 #F0F0F0);"
+        "    color: #000000;"  // --color-fg-primary
+        "    letter-spacing: 0.05em;"
         "}"
     );
     mainLayout->addWidget(inputDisplay);
@@ -65,8 +71,8 @@ void Calculator::setupUI() {
     latexLabel->setStyleSheet(
         "font-weight: 600; "
         "font-size: 13px; "
-        "color: #505050; "
-        "font-family: 'SF Pro Text', 'Segoe UI', sans-serif;"
+        "color: #696D79; "  // --color-fg-secondary
+        "font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;"
     );
     formatLayout->addWidget(latexLabel);
 
@@ -74,19 +80,22 @@ void Calculator::setupUI() {
     formatToggle->setMaximumWidth(150);
     formatToggle->setStyleSheet(
         "QPushButton {"
-        "    background-color: #A5A5A5;"
-        "    color: white;"
-        "    border: none;"
-        "    border-radius: 6px;"
-        "    padding: 6px 12px;"
+        "    background-color: white;"
+        "    color: #000000;"  // --color-fg-primary
+        "    border: 2px solid #E0E0E0;"  // --color-border-medium
+        "    border-radius: 6px;"  // --radius-base
+        "    padding: 8px 16px;"
         "    font-size: 12px;"
-        "    font-family: 'SF Pro Text', 'Segoe UI', sans-serif;"
+        "    font-weight: 500;"  // --font-weight-medium
+        "    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;"
+        "    min-height: 36px;"
         "}"
         "QPushButton:hover {"
-        "    background-color: #8C8C8C;"
+        "    background-color: #FAFAFA;"  // --color-bg-secondary
+        "    border-color: #4482B4;"  // --color-accent-primary
         "}"
         "QPushButton:pressed {"
-        "    background-color: #707070;"
+        "    transform: translateY(0);"
         "}"
     );
     connect(formatToggle, &QPushButton::clicked, this, &Calculator::toggleFormat);
@@ -95,26 +104,28 @@ void Calculator::setupUI() {
 
     mainLayout->addLayout(formatLayout);
 
+    // Card-style preview display - responsive sizing
     latexDisplay = new QTextEdit(this);
     latexDisplay->setReadOnly(true);
-    latexDisplay->setMinimumHeight(100);
-    latexDisplay->setMaximumHeight(150);
+    latexDisplay->setMinimumHeight(80);  // Reduced for compact screens
+    latexDisplay->setMaximumHeight(120);  // Reduced for compact screens
+    latexDisplay->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     latexDisplay->setStyleSheet(
         "QTextEdit {"
-        "    font-size: 16px;"
-        "    font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;"
-        "    padding: 12px;"
-        "    border: none;"
-        "    border-radius: 8px;"
-        "    background-color: #F5F5F5;"
-        "    color: #333333;"
+        "    font-size: 14px;"  // Slightly reduced for compact screens
+        "    font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;"
+        "    padding: 12px;"  // --spacing-2 (reduced from 18px)
+        "    border: 2px solid #E8E8E8;"  // --color-border-light
+        "    border-radius: 8px;"  // --radius-md
+        "    background-color: #FAFAFA;"  // --color-bg-secondary
+        "    color: #000000;"  // --color-fg-primary
         "}"
     );
     mainLayout->addWidget(latexDisplay);
 
     // Button layout
     buttonLayout = new QGridLayout();
-    buttonLayout->setSpacing(5);
+    buttonLayout->setSpacing(6);  // --spacing-1: 6px
     mainLayout->addLayout(buttonLayout);
 }
 
@@ -171,7 +182,7 @@ void Calculator::setupConnections() {
 void Calculator::styleWidget() {
     setStyleSheet(
         "Calculator {"
-        "    background-color: #E8E8E8;"
+        "    background-color: #FFFFFF;"  // --color-bg-primary: Pure white background
         "}"
     );
 }
