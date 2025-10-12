@@ -1,19 +1,18 @@
 # Matheto - Scientific Calculator
 
-A lightweight, modular scientific calculator built with C++ and Qt5 for mathematicians, engineers, and students.
+A lightweight scientific calculator built with C++ and Qt 5 for mathematicians, engineers, and students.
 
-Designed with functional minimalism and precision, featuring dual mathematical notation support (LaTeX and Typst) for educational and professional use.
+Designed with functional minimalism and precision, focusing on essential scientific calculations with dual mathematical notation output (LaTeX and Typst).
 
 ## Features
 
-- 🧮 **Scientific functions** - Trigonometric, logarithmic, exponential, and factorial operations
-- 📐 **Mathematical notation** - Real-time LaTeX and Typst output for documentation
-- 🎨 **Modern design** - Clean interface following Universal Design System principles
-- 📱 **Responsive layout** - Optimized for MNT Pocket Reform and desktop displays
-- ⚡ **Lightweight** - Fast, minimal dependencies, efficient performance
-- 🔢 **Expression evaluation** - Advanced math engine with proper operator precedence
-- 🎯 **Modular architecture** - Easily extensible for custom functions and converters
-- ⌨️ **Keyboard-friendly** - Full keyboard navigation support
+- **Scientific functions** - Trigonometric, logarithmic, exponential, and factorial operations
+- **Mathematical notation** - Real-time LaTeX and Typst output for documentation
+- **Expression evaluation** - Advanced math engine with proper operator precedence
+- **Modular architecture** - Easily extensible for custom functions and converters
+- **Responsive design** - Optimized for MNT Pocket Reform and desktop displays
+- **Modern UI** - Clean design following Universal Design System principles
+- **Lightweight** - Fast and efficient with minimal dependencies
 
 ## Installation
 
@@ -93,47 +92,22 @@ matheto
 
 ### Basic Operations
 
-Click buttons or type directly to input expressions. The calculator supports:
+The calculator supports:
 - **Basic arithmetic**: +, -, *, /, %
 - **Trigonometry**: sin(), cos(), tan()
 - **Logarithms**: ln(), log()
-- **Powers**: x², xʸ (^)
+- **Powers**: x² (square), xʸ (power)
 - **Constants**: π (pi), e
-- **Functions**: sqrt(), ! (factorial)
+- **Functions**: sqrt() (square root), ! (factorial)
 
-### Mathematical Notation
+### Mathematical Notation Output
 
-Toggle between LaTeX and Typst output formats:
-- **LaTeX Preview**: For use in LaTeX documents, academic papers
-- **Typst Preview**: For modern typesetting with Typst
-
-Click "Switch to Typst" or "Switch to LaTeX" button to change format.
-
-### Platform Notes
-
-Matheto is optimized for the **MNT Pocket Reform** handheld Linux computer with responsive sizing for split-screen tiling window managers. Works on any Linux desktop, macOS, or Windows system with Qt5.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a new feature branch: `git checkout -b feature/your-feature`
-3. Commit your changes with clear messages
-4. Open a pull request for review
-
-Please ensure your contributions follow the existing code style and include appropriate documentation and tests where applicable.
+Toggle between output formats using the button in the interface:
+- **LaTeX** - For LaTeX documents and academic papers
+- **Typst** - For modern typesetting with Typst
 
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
-
-## References & Acknowledgements
-
-- [GNU GPL v3 License](https://www.gnu.org/licenses/gpl-3.0.en.html)
-- [MNT Pocket Reform](https://mntre.com/reform/)
-- [Universal Design System](https://docs.elementary.io/hig)
-- [NumWorks Calculator](https://www.numworks.com/)
-- [Qt Framework](https://www.qt.io/)
 
 ---
