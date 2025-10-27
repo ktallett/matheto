@@ -1,2 +1,5 @@
 # Claude Code configuration
 .claude/
+
+# Development and planning documents
+IMPROVEMENT_PLAN.md
